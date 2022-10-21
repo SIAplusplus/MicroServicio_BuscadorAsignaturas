@@ -70,6 +70,18 @@ router.patch('/:asignaturaId', async (req,res)=>{
     }    
 });
 
-
+router.post('/asignaturasInfo', async(req, res) => {
+    courseList = req.body
+    courseInfo = []
+    try{
+        for (const element of courseList){
+            course = await Asignatura.findById(element.courseId)
+            courseInfo.push(courseInfo)
+        }
+        res.json(courseInfo)
+    } catch(err) {
+        res.json({message:err})
+    }
+});
 
 module.exports = router;
