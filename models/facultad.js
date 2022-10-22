@@ -16,4 +16,4 @@ const facultadSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Facultades',programaSchema);
+module.exports = mongoose.model('Facultades',facultadSchema);
