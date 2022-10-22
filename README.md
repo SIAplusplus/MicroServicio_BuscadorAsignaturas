@@ -9,3 +9,8 @@
  Para verificar el estatus del contenedor:
  docker ps
  
+## Requests
+
+https://spp-buscador-ms-abkctkgj5q-uc.a.run.app:443/programas
+https://spp-buscador-ms-abkctkgj5q-uc.a.run.app:443/Asignaturas
+https://spp-buscador-ms-abkctkgj5q-uc.a.run.app:443/Grupos
