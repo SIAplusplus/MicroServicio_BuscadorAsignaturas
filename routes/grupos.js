@@ -83,7 +83,7 @@ router.post('/gruposInfo', async(req, res) => {
     groupInfo = []
     try{
         for (const element of groupList){
-            group = await Grupo.findById(element.groupId)
+            group = await Grupo.findById(element.GroupId)
             AsignaturaNombre = await Asignatura.findById(group.Asignatura.toString())
             group.Asignatura = AsignaturaNombre
             groupInfo.push(group)
