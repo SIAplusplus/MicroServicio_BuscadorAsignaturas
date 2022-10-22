@@ -8,8 +8,18 @@
  
  Para verificar el estatus del contenedor:
  docker ps
- 
-## Requests
+##Requests desde el microservicio en google cloud
+1.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app/sedes
+
+2.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app/facultades
+
+3.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app/programas
+
+4.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app/asignaturas
+
+5.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app/grupos
+
+## Requests desde el aPI gateway
 
 1.https://spp-buscador-ms-abkctkgj5q-uc.a.run.app:443/programas
 
