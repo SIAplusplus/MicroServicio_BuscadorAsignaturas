@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const grupoSchema = mongoose.Schema({
-   Asignatura:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref: "Asignaturas",
-    required:true
-   },
    Numero:{
     type:Number,
     required:true
@@ -32,6 +27,11 @@ const grupoSchema = mongoose.Schema({
    },
    IDProfesor: {
     type: String,
+    required:true
+   },
+   Asignatura:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref: "Asignaturas",
     required:true
    },
    IDEstudiantes: [{

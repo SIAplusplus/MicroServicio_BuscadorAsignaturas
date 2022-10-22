@@ -16,6 +16,7 @@ router.get('/', async (req,res)=>{
 router.post('/', async (req,res)=>{
     const programa = new Programa({
 
+        Id_programa: req.body.Id_programa,
         Nombre: req.body.Nombre,
         Facultad: req.body.Facultad,
         Sede: req.body.Sede
@@ -55,6 +56,7 @@ router.patch('/:programaId', async (req,res)=>{
         const updatedPrograma = await Programa.updateOne(
             {_id: req.params.programaId},
             {$set:{
+                Id_programa: req.body.Id_programa,
                 Nombre: req.body.Nombre,
                 Facultad: req.body.Facultad,
                 Sede: req.body.Sede

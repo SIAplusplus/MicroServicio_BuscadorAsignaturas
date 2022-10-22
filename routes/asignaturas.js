@@ -15,7 +15,7 @@ router.get('/', async (req,res)=>{
 //add a program
 router.post('/', async (req,res)=>{
     const asignatura = new Asignatura({
-
+        Id_asignatura: req.body.Id_asignatura,
         Nombre: req.body.Nombre,
         Tipologia: req.body.Tipologia,
         Creditos: req.body.Creditos,
@@ -56,6 +56,7 @@ router.patch('/:asignaturaId', async (req,res)=>{
         const updatedAsignatura = await Asignatura.updateOne(
             {_id: req.params.asignaturaId},
             {$set:{
+                Id_asignatura: req.body.Id_asignatura,
                 Nombre: req.body.Nombre,
                 Tipologia: req.body.Facultad,
                 Creditos: req.body.Sede,

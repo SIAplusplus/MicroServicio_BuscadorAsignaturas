@@ -1,17 +1,23 @@
 const mongoose = require('mongoose');
 
 const programaSchema = mongoose.Schema({
+   Id_programa:{
+      type:Number,
+      required:true
+   },
    Nombre:{
     type:String,
     required:true
    },
    Facultad:{
-    type:String,
-    required:true
+      type:mongoose.Schema.Types.ObjectId,
+      ref: "Facultades",
+      required:true
    },
    Sede:{
-    type:String,
-    required:true
+      type:mongoose.Schema.Types.ObjectId,
+      ref: "Sedes",
+      required:true
    }
 });
 

@@ -22,6 +22,12 @@ app.use('/asignaturas',asignaturasRoute);
 const gruposRoute = require('./routes/grupos');
 app.use('/grupos',gruposRoute);
 
+const sedesRoute = require('./routes/sedes');
+app.use('/sedes',sedesRoute);
+
+const facultadesRoute = require('./routes/facultades');
+app.use('/facultades',facultadesRoute);
+
 //Routes
 
 app.get('/',(req,res)=>{
