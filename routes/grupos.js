@@ -34,7 +34,6 @@ router.post('/', async (req,res)=>{
     }
 });
 
-//get a specific program
 router.get('/:grupoId', async (req,res)=>{
     try{
         const grupo = await Grupo.findById(req.params.grupoId);
@@ -60,7 +59,7 @@ router.patch('/:grupoId', async (req,res)=>{
         const updatedGrupo = await Grupo.updateOne(
             {_id: req.params.grupoId},
             {$set:{
-                Numero: req.body.Numero,
+                Numero: req.body.Numero, 
                 Dias:req.body.Dias,
                 Horario: req.body.Horario,
                 Cupos: req.body.Cupos,
