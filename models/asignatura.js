@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const asignaturaSchema = mongoose.Schema({
+   Id_asignatura:{
+    type:Number,
+    required:true
+   },
    Nombre:{
     type:String,
     required:true

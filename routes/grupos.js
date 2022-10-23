@@ -3,7 +3,7 @@ const router =express.Router();
 const Grupo = require('../models/grupo');
 const Asignatura = require('../models/asignatura');
 
-//get back all the asignaturas
+//get back all the grupos
 router.get('/', async (req,res)=>{
     try{
         const grupos = await Grupo.find();
@@ -13,7 +13,7 @@ router.get('/', async (req,res)=>{
     }
 });
 
-//add a program
+//add a grupo
 router.post('/', async (req,res)=>{
     const grupo = new Grupo({
         Asignatura:req.body.Asignatura,
@@ -43,7 +43,17 @@ router.get('/:grupoId', async (req,res)=>{
     }    
 });
 
-//remove a post 
+//buscar grupo por asignatura
+router.get('/porasignatura/:AsignaturaId', async (req,res)=>{
+    try{        
+        const grupos = await Grupo.find({Asignatura:req.params.AsignaturaId});
+        res.json(grupos);
+    } catch(err) {
+        res.json({message:err});
+    }    
+})
+
+//remove a grupo
 router.delete('/:grupoId', async (req,res)=>{
     try{
         const removedGrupo = await Grupo.remove({_id: req.params.grupoId});
@@ -53,7 +63,7 @@ router.delete('/:grupoId', async (req,res)=>{
     }    
 });
 
-//update a post 
+//update a grupo
 router.patch('/:grupoId', async (req,res)=>{
     try{
         const updatedGrupo = await Grupo.updateOne(

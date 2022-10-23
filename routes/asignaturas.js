@@ -15,7 +15,7 @@ router.get('/', async (req,res)=>{
 //add a program
 router.post('/', async (req,res)=>{
     const asignatura = new Asignatura({
-
+        Id_asignatura: req.body.Id_asignatura,
         Nombre: req.body.Nombre,
         Tipologia: req.body.Tipologia,
         Creditos: req.body.Creditos,
@@ -40,6 +40,41 @@ router.get('/:asignaturaId', async (req,res)=>{
     }    
 });
 
+//buscar asignaturas por programas
+router.get('/porprograma/:programaId', async (req,res)=>{
+    try{        
+        const asignaturas = await Asignatura.find({Programas: {$all: [req.params.programaId]}});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//buscar asignaturas por codigo
+router.get('/porcodigo/:codigo', async (req,res)=>{
+    try{        
+        const asignaturas = await Asignatura.find({Id_asignatura:req.params.codigo});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+
+
+
+//buscar asignaturas por palabra clave NO SIRVE
+router.get('/porpalabra/:palabra', async (req,res)=>{
+    try{   
+        await Asignatura.createIndexes({Nombre:"text"});     
+        const asignaturas = await Asignatura.find({ $text:{ $search: req.params.palabra }});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+
 //remove a post 
 router.delete('/:asignaturaId', async (req,res)=>{
     try{
@@ -56,6 +91,7 @@ router.patch('/:asignaturaId', async (req,res)=>{
         const updatedAsignatura = await Asignatura.updateOne(
             {_id: req.params.asignaturaId},
             {$set:{
+                Id_asignatura: req.body.Id_asignatura,
                 Nombre: req.body.Nombre,
                 Tipologia: req.body.Facultad,
                 Creditos: req.body.Sede,

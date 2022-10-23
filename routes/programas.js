@@ -16,6 +16,7 @@ router.get('/', async (req,res)=>{
 router.post('/', async (req,res)=>{
     const programa = new Programa({
 
+        Id_programa: req.body.Id_programa,
         Nombre: req.body.Nombre,
         Facultad: req.body.Facultad,
         Sede: req.body.Sede
@@ -39,6 +40,28 @@ router.get('/:programaId', async (req,res)=>{
     }    
 });
 
+//buscar programas por sede
+router.get('/porsede/:sedeId', async (req,res)=>{
+    try{        
+        const programas = await Programa.find({Sede: req.params.sedeId});
+        res.json(programas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//buscar programas por facultad
+router.get('/porfacultad/:facultadId', async (req,res)=>{
+    try{        
+        const programas = await Programa.find({Facultad: req.params.facultadId});
+        res.json(programas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+
+
 //remove a post 
 router.delete('/:programaId', async (req,res)=>{
     try{
@@ -55,6 +78,7 @@ router.patch('/:programaId', async (req,res)=>{
         const updatedPrograma = await Programa.updateOne(
             {_id: req.params.programaId},
             {$set:{
+                Id_programa: req.body.Id_programa,
                 Nombre: req.body.Nombre,
                 Facultad: req.body.Facultad,
                 Sede: req.body.Sede
