@@ -41,7 +41,7 @@ router.get('/:facultadId', async (req,res)=>{
 });
 
 //get a specific facultades by sede
-router.get('/:sedeId', async (req,res)=>{
+router.get('/porsede/:sedeId', async (req,res)=>{
     console.log(req.params.sedeId);
     try{        
         const facultades = await Facultad.find({Sede: req.params.sedeId});
