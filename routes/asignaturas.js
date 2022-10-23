@@ -40,6 +40,38 @@ router.get('/:asignaturaId', async (req,res)=>{
     }    
 });
 
+//buscar asignaturas por programas
+router.get('/porprograma/:programaId', async (req,res)=>{
+    try{        
+        const asignaturas = await Asignatura.find({Programas: {$all: [req.params.programaId]}});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//buscar asignaturas por codigo
+router.get('/porcodigo/:codigo', async (req,res)=>{
+    try{        
+        const asignaturas = await Asignatura.find({Id_asignatura:req.params.codigo});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//buscar asignaturas por palabra clave NO SIRVE
+router.get('/porpalabra/:palabra', async (req,res)=>{
+    try{   
+        await Asignatura.createIndexes({Nombre:"text"});     
+        const asignaturas = await Asignatura.find({ $text:{ $search: req.params.palabra }});
+        res.json(asignaturas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+
 //remove a post 
 router.delete('/:asignaturaId', async (req,res)=>{
     try{

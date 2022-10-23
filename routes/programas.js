@@ -40,6 +40,28 @@ router.get('/:programaId', async (req,res)=>{
     }    
 });
 
+//buscar programas por sede
+router.get('/porsede/:sedeId', async (req,res)=>{
+    try{        
+        const programas = await Programa.find({Sede: req.params.sedeId});
+        res.json(programas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//buscar programas por facultad
+router.get('/porfacultad/:facultadId', async (req,res)=>{
+    try{        
+        const programas = await Programa.find({Facultad: req.params.facultadId});
+        res.json(programas);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+
+
 //remove a post 
 router.delete('/:programaId', async (req,res)=>{
     try{
