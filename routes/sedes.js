@@ -39,9 +39,9 @@ router.get('/:sedeID', async (req,res)=>{
 });
 
 //remove a post 
-router.delete('/:sedeID', async (req,res)=>{
+router.delete('/:sedeId', async (req,res)=>{
     try{
-        const removedSede = await Grupo.remove({_id: req.params.sedeID});
+        const removedSede = await Sede.remove({_id: req.params.sedeId});
         res.json(removedSede);
     } catch(err) {
         res.json({message:err});
@@ -49,13 +49,13 @@ router.delete('/:sedeID', async (req,res)=>{
 });
 
 //update a post 
-router.patch('/:sedeID', async (req,res)=>{
+router.patch('/:sedeId', async (req,res)=>{
     try{
-        const updatedSede = await Grupo.updateOne(
-            {_id: req.params.sedeID},
+        const updatedSede = await Sede.updateOne(
+            {_id: req.params.sedeId},
             {$set:{
-                Nombre:req.body.Nombre,
-                Id_sede: req.body.Id_sede
+                Id_sede: req.body.Id_sede,
+                Nombre: req.body.Nombre
             }
 
             }            

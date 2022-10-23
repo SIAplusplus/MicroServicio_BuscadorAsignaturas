@@ -1,4 +1,5 @@
 const express = require('express');
+const { isObjectIdOrHexString } = require('mongoose');
 const router =express.Router();
 const Facultad = require('../models/facultad');
 
@@ -22,8 +23,8 @@ router.post('/', async (req,res)=>{
 
     });    
     try{
-        const savedAsignatura = await facultad.save();
-        res.json(savedAsignatura);
+        const savedFacultad = await facultad.save();
+        res.json(savedFacultad);
     } catch(err) {
         res.json({message:err});
     }
@@ -34,6 +35,17 @@ router.get('/:facultadId', async (req,res)=>{
     try{
         const facultad = await Facultad.findById(req.params.facultadId);
         res.json(facultad);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
+//get a specific facultades by sede
+router.get('/:sedeId', async (req,res)=>{
+    console.log(req.params.sedeId);
+    try{        
+        const facultades = await Facultad.find({Sede: req.params.sedeId});
+        res.json(facultades);
     } catch(err) {
         res.json({message:err});
     }    
