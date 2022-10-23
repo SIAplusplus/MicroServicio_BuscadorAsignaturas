@@ -60,6 +60,9 @@ router.get('/porcodigo/:codigo', async (req,res)=>{
     }    
 });
 
+
+
+
 //buscar asignaturas por palabra clave NO SIRVE
 router.get('/porpalabra/:palabra', async (req,res)=>{
     try{   

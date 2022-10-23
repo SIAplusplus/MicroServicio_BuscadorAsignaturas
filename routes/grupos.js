@@ -44,6 +44,16 @@ router.get('/:grupoId', async (req,res)=>{
     }    
 });
 
+//buscar grupo por asignatura
+router.get('/porasignatura/:AsignaturaId', async (req,res)=>{
+    try{        
+        const grupos = await Grupo.find({Asignatura:req.params.AsignaturaId});
+        res.json(grupos);
+    } catch(err) {
+        res.json({message:err});
+    }    
+})
+
 //remove a grupo
 router.delete('/:grupoId', async (req,res)=>{
     try{

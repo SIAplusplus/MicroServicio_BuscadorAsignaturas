@@ -26,7 +26,7 @@ const grupoSchema = mongoose.Schema({
     required:true
    },
    IDProfesor: {
-    type: String,
+    type: Number,
     required:true
    },
    Asignatura:{
@@ -36,7 +36,7 @@ const grupoSchema = mongoose.Schema({
    },
    IDEstudiantes: [{
     type: Number,
-    required:true
+    required:false
    }]
   
 });
