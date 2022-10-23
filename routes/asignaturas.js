@@ -67,7 +67,7 @@ router.get('/porcodigo/:codigo', async (req,res)=>{
 router.get('/porpalabra/:palabra', async (req,res)=>{
     console.log(req.params.palabra)
     try{   
-        const asignaturas = await Asignatura.find({ Nombre:{$regex:req.params.palabra}});
+        const asignaturas = await Asignatura.find({ Nombre:{$regex:req.params.palabra,$options:"$i"}});
         res.json(asignaturas);
     } catch(err) {
         res.json({message:err});
