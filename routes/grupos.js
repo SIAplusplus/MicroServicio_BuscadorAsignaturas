@@ -105,14 +105,16 @@ router.post('/gruposInfo', async(req, res) => {
 
 router.post('/scheduleByIds', async(req, res) => {
     groupList = req.body
-    console.log(groupList)
     groupIdList = groupList.map((element) => { return element.GroupId })
-    console.log(groupIdList)
     dayList = {"Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": []}
     scheduleArray = []
     try {
         for (const day of Object.keys(dayList)){
             group = await Grupo.find({_id: {"$in": groupIdList}, Dias: { "$in": [day]}})
+            for (const g of group){
+                AsignaturaNombre = await Asignatura.findById(g.Asignatura.toString())
+                g.Asignatura = AsignaturaNombre
+            }
             dayList[`${day}`].push(group)           
         }
         res.json(dayList)
