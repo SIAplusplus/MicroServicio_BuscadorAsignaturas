@@ -65,9 +65,9 @@ router.get('/porcodigo/:codigo', async (req,res)=>{
 
 //buscar asignaturas por palabra clave NO SIRVE
 router.get('/porpalabra/:palabra', async (req,res)=>{
+    console.log(req.params.palabra)
     try{   
-        await Asignatura.createIndexes({Nombre:"text"});     
-        const asignaturas = await Asignatura.find({ $text:{ $search: req.params.palabra }});
+        const asignaturas = await Asignatura.find({ Nombre:{$regex:req.params.palabra,$options:"$i"}});
         res.json(asignaturas);
     } catch(err) {
         res.json({message:err});
