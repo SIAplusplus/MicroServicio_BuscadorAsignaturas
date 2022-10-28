@@ -124,4 +124,15 @@ router.post('/scheduleByIds', async(req, res) => {
 
 })
 
+router.get('/grupoAsignatura/:grupoId', async (req,res)=>{
+    try{
+        const grupo = await Grupo.findById(req.params.grupoId);
+        AsignaturaNombre = await Asignatura.findById(grupo.Asignatura.toString())
+        grupo.Asignatura = AsignaturaNombre
+        res.json(grupo);
+    } catch(err) {
+        res.json({message:err});
+    }    
+});
+
 module.exports = router;
