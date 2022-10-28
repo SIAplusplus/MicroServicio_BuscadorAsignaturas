@@ -90,7 +90,7 @@ router.patch('/:grupoId', async (req,res)=>{
 router.post('/gruposInfo', async(req, res) => {
     groupList = req.body
     groupInfo = []
-    try{
+    try {
         for (const element of groupList){
             group = await Grupo.findById(element.GroupId)
             AsignaturaNombre = await Asignatura.findById(group.Asignatura.toString())
@@ -102,5 +102,24 @@ router.post('/gruposInfo', async(req, res) => {
         res.json({message:err})
     }
 });
+
+router.post('/scheduleByIds', async(req, res) => {
+    groupList = req.body
+    console.log(groupList)
+    groupIdList = groupList.map((element) => { return element.GroupId })
+    console.log(groupIdList)
+    dayList = {"Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": []}
+    scheduleArray = []
+    try {
+        for (const day of Object.keys(dayList)){
+            group = await Grupo.find({_id: {"$in": groupIdList}, Dias: { "$in": [day]}})
+            dayList[`${day}`].push(group)           
+        }
+        res.json(dayList)
+    } catch(err){
+        res.json({message:err})
+    }
+
+})
 
 module.exports = router;

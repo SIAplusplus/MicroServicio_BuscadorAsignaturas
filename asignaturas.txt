@@ -1,0 +1,174 @@
+
+ID de sistemas: 63548a0f3d640645b94b1356
+
+{
+	"Id_asignatura": 1000004,
+	"Nombre": "Calculo Diferencial",
+	"Tipologia": "Fundamental Optativa",
+	"Creditos": 4,
+	"Programas": "63548a0f3d640645b94b1356"
+}
+{
+	"Id_asignatura": 2015734,
+	"Nombre": "Programacion de Computadores",
+	"Tipologia": "Disciplinar Optativa",
+	"Creditos": 4,
+	"Programas": "63548a0f3d640645b94b1356"
+}
+{
+	"Id_asignatura": 1000005,
+	"Nombre": "Cálculo Integral",
+	"Tipologia": "Fundamental Optativa",
+	"Creditos": 4,
+	"Programas": "63548a0f3d640645b94b1356"
+}
+{
+	"Id_asignatura": 1000019,
+	"Nombre": "Fundamentos de Mecánica",
+	"Tipologia": "Fundamental Obligatoria",
+	"Creditos": 4,
+	"Programas": "63548a0f3d640645b94b1356"
+}
+{
+	"Id_asignatura": 2016375,
+	"Nombre": "Programación orientada a objetos",
+	"Tipologia": "Disciplinar Obligatoria",
+	"Creditos": 3,
+	"Programas": "63548a0f3d640645b94b1356"
+}
+
+GRUPOS RETORNO
+
+
+[
+    {
+        "_id": "6354e596f9ba21760c4bf023",
+        "Numero": 1,
+        "Dias": [
+            "martes y jueves"
+        ],
+        "Horario": "9-11",
+        "Cupos": 20,
+        "Edificio": "Biblioteca Central",
+        "Salon": "Principal",
+        "IDProfesor": 56767747,
+        "Asignatura": "6354d4cab121aec76552bc66",
+        "IDEstudiantes": [
+            2345455677,
+            5664533455,
+            221222322
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "6355702d8f825811a1d62a01",
+        "Numero": 2,
+        "Dias": [
+            "Lunes",
+            "Miercoles"
+        ],
+        "Horario": "7-9",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "6355644cc90c95dd6d5d97d2",
+        "IDEstudiantes": [],
+        "__v": 0
+    },
+    {
+        "_id": "635570628f825811a1d62a03",
+        "Numero": 3,
+        "Dias": [
+            "Martes",
+            "Jueves"
+        ],
+        "Horario": "7-9",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "6355648dc90c95dd6d5d97d4",
+        "IDEstudiantes": [],
+        "__v": 0
+    },
+    {
+        "_id": "6355707f8f825811a1d62a07",
+        "Numero": 4,
+        "Dias": [
+            "Lunes",
+            "Miercoles"
+        ],
+        "Horario": "9-11",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "635564ccc90c95dd6d5d97d6",
+        "IDEstudiantes": [],
+        "__v": 0
+    },
+    {
+        "_id": "635570898f825811a1d62a09",
+        "Numero": 4,
+        "Dias": [
+            "Lunes",
+            "Miercoles"
+        ],
+        "Horario": "9-11",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "635564eec90c95dd6d5d97d8",
+        "IDEstudiantes": [],
+        "__v": 0
+    },
+    {
+        "_id": "6355710e8f825811a1d62a10",
+        "Numero": 7,
+        "Dias": [
+            "Martes",
+            "Jueves"
+        ],
+        "Horario": "14-16",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "63556553c90c95dd6d5d97dc",
+        "IDEstudiantes": [],
+        "__v": 0
+    },
+    {
+        "_id": "635571418f825811a1d62a14",
+        "Numero": 6,
+        "Dias": [
+            "Lunes",
+            "Miercoles"
+        ],
+        "Horario": "14-16",
+        "Cupos": 50,
+        "Edificio": "Ciencia y Tecnologia",
+        "Salon": "301",
+        "IDProfesor": 1000001,
+        "Asignatura": "6355651ac90c95dd6d5d97da",
+        "IDEstudiantes": [],
+        "__v": 0
+    }
+]
+
+USUARIO PARA DEMO
+
+{
+      "_id": "6353bc46a69a86e8c339a867",
+      "username": "freidel",
+      "type": "Estudiante",
+      "name": "Freidel",
+      "surname": "Ferreira",
+      "doc": "1000004",
+      "career": "Ingeniería de Sistemas y Computación",
+      "createdAt": "2022-10-22T09:47:50.763Z",
+      "updatedAt": "2022-10-22T09:47:50.763Z",
+      "v": 0
+    }
