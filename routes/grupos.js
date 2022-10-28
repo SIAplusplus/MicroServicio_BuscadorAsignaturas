@@ -115,9 +115,9 @@ router.post('/scheduleByIds', async(req, res) => {
                 AsignaturaNombre = await Asignatura.findById(g.Asignatura.toString())
                 g.Asignatura = AsignaturaNombre
             }
-            scheduleArray.push(group)           
+            dayList[`${day}`].push(group)           
         }
-        res.json(scheduleArray)
+        res.json(dayList)
     } catch(err){
         res.json({message:err})
     }
